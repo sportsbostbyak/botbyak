@@ -15,7 +15,7 @@ QBITTORRENT_HOST = "localhost"
 QBITTORRENT_PORT = 8080
 QBITTORRENT_USERNAME = "akadmin"
 QBITTORRENT_PASSWORD = "12qw12"
-
+PORT = int(os.getenv("PORT", 5000))
 # 📂 User-Specific Download Directory
 BASE_DOWNLOAD_DIR = r"C:\Users\anilk\Downloads\Torrents"
 
@@ -232,5 +232,5 @@ def run_bot():
     bot_app.run_polling()
 
 if __name__ == "__main__":
-    threading.Thread(target=app.run, kwargs={"port": 5000, "use_reloader": False}).start()
+    threading.Thread(target=app.run, kwargs={"host": "0.0.0.0", "port": PORT, "use_reloader": False}).start()
     run_bot()
